@@ -397,6 +397,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Usario</th>
+                                            <th>Opciones</th>
 
                                         </tr>
                                     </thead>
@@ -457,6 +458,56 @@
   </div>
 </div>
 
+<div class="modal fade" id="myModalVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Video Usuario</h4>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <video id="videoMo" class="col-md-7" src="" autoplay poster="posterimage.jpg" controls>
+
+    </div>
+
+   </video>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+  </div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="myModalCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Elegir curso</h4>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <ul id="ulC">
+
+      </ul>
+    </div>
+
+   </video>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+    <button type="button" id="botonUCG" class="btn btn-default" data-dismiss="modal" style="background-color:rgb(81, 148, 210)">Guardar</button>
+
+  </div>
+</div>
+</div>
+</div>
+
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
 
@@ -494,10 +545,76 @@
     var xx ="";
     console.log(msg);
     for (var i = 0; i < msg.length; i++) {
-       xx += "<tr>  <td>"+i+"</td>  <td>"+msg[i].nombre+"</td>   </tr>"
+      if(msg[i].video){
+         xx += "<tr>  <td>"+i+"</td>  <td>"+msg[i].nombre+"</td> <td>  <button class='btn btnv' style='background-color:#801515;color:white' vid='"+msg[i].video+"'>Ver video</button> </td> </tr>"
+      }else if(msg[i].prueba){
+         xx += "<tr>  <td>"+i+"</td>  <td>"+msg[i].nombre+"</td> <td> <button class='btn btnRed' idbu='"+msg[i]._id+"' idbc='"+msg[i].prueba+"' style='background-color:#f4b558'>Hacer prueba</button>  </td> </tr>"
+      }
+      else{
+        xx += "<tr>  <td>"+i+"</td>  <td>"+msg[i].nombre+"</td> <td> <button class='btn btnC' idbc='"+msg[i]._id+"' style='background-color:#669999'>Agregar curso</button>  </td> </tr>"
+      }
     }
     $("#tbodyUsers").append(xx);
+    $(".btnRed").on("click", function(){
+      var xl = $(this).attr("idbu");
+      var yl = $(this).attr("idbc");
+      localStorage.setItem("userID", xl);
+      localStorage.setItem("cursoID", yl);
+      window.location.replace("http://localhost/PPAbril/pages/carro.html");
+    })
+    $(".btnv").on("click", function(){
+        var x = $(this).attr("vid");
+        var y = "http://138.68.7.40:8050/static/"+x;
+        $("#videoMo").attr("src", y);
+        $("#myModalVideo").modal("show");
+        $('#myModalVideo').on('hidden.bs.modal', function (e) {
+                 $("#videoMo").attr("src", "");
+             })
 
+    });
+
+    $(".btnC").on("click", function(){
+      var idU = $(this).attr("idbc");
+      $("#ulC").html("");
+      $.ajax({
+    method: "GET",
+    url: "http://138.68.7.40:8050/api/curso",
+    contentType: "application/x-www-form-urlencoded",
+   })
+    .done(function( msg ) {
+      var xx ="";
+      console.log(msg);
+      for (var i = 0; i < msg.length; i++) {
+        xx += "<li><label><input type='checkbox' name='opcCheck' value='"+msg[i]._id+"'>"+msg[i].nombre+"</label></li>";
+
+      }
+      $("#ulC").append(xx);
+      $("#myModalCurso").modal("show");
+      var yyy= "";
+      $( "input[type=checkbox]" ).on( "click", function(){
+         console.log($( "input:checked" ).attr("value"))
+         yyy = $( "input:checked" ).attr("value");
+      } );
+      $("#botonUCG").on("click", function(){
+        console.log("idc"+yyy);
+        console.log("idu"+idU);
+        $.ajax({
+      method: "POST",
+      url: "http://138.68.7.40:8050/api/usuarioCurso/"+idU,
+      contentType: "application/x-www-form-urlencoded",
+      data: {
+        "curso": yyy
+       }
+     })
+      .done(function( msg ) {
+
+      })
+
+      })
+
+    });
+
+    })
   });
     </script>
 
