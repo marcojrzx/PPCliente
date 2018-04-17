@@ -376,7 +376,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Usuarios</h1>
+                    <h1 class="page-header">Cursos</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -387,7 +387,7 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Usuarios
+                            Cursos
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -396,11 +396,13 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Usario</th>
+                                            <th>Nombre Curso</th>
+                                            <th>Lenguaje</th>
+                                            <th>Opciones</th>
 
                                         </tr>
                                     </thead>
-                                    <tbody id="tbodyUsers">
+                                    <tbody id="tbodyCursos">
 
                                     </tbody>
                                 </table>
@@ -486,7 +488,7 @@
     <script>
     $.ajax({
   method: "GET",
-  url: "http://138.68.7.40:8050/api/usuario",
+  url: "http://138.68.7.40:8050/api/curso",
   contentType: "application/x-www-form-urlencoded",
   //data: { name: "John", location: "Boston" }
   })
@@ -494,9 +496,9 @@
     var xx ="";
     console.log(msg);
     for (var i = 0; i < msg.length; i++) {
-       xx += "<tr>  <td>"+i+"</td>  <td>"+msg[i].nombre+"</td>   </tr>"
+       xx += "<tr>  <td>"+i+"</td>  <td>"+msg[i].nombre+"</td> <td>"+msg[i].lenguaje+"</td> <td> <button type='button' class='btn' style='background-color:#1C77C8;color:white' > <i class='fa fa-edit fa-fw'></i> Usuarios </button>  <button type='button' class='btn' style='background-color:#1C77C8;color:white' > <i class='fa  fa-image '></i> Imagenes </button> </td>   </tr>"
     }
-    $("#tbodyUsers").append(xx);
+    $("#tbodyCursos").append(xx);
 
   });
     </script>

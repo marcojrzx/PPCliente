@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="../node_modules/video.js/dist/video-js.min.css" rel="stylesheet">
+    <link href="../dist/css/videojs.record.css" rel="stylesheet">
+
+    <script src="../node_modules/video.js/dist/video.min.js"></script>
+    <script src="../node_modules/recordrtc/RecordRTC.js"></script>
+    <script src="../node_modules/webrtc-adapter/out/adapter.js"></script>
+
+    <script src="../dist/videojs.record.js"></script>
+    <style>
+    /* change player background color */
+    #myVideo {
+        background-color: #1a535c;
+    }
+    </style>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+            </div>
+            <!-- /.navbar-header -->
+
+
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="flot.html">Flot Charts</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Morris.js Charts</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="panels-wells.html">Panels and Wells</a>
+                                </li>
+                                <li>
+                                    <a href="buttons.html">Buttons</a>
+                                </li>
+                                <li>
+                                    <a href="notifications.html">Notifications</a>
+                                </li>
+                                <li>
+                                    <a href="typography.html">Typography</a>
+                                </li>
+                                <li>
+                                    <a href="icons.html"> Icons</a>
+                                </li>
+                                <li>
+                                    <a href="grid.html">Grid</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-third-level -->
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li class="active">
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a class="active" href="blank.html">Blank Page</a>
+                                </li>
+                                <li>
+                                    <a href="login.html">Login Page</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+
+
+               <div class="row">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="false" >
+
+                <!-- Wrapper for slides -->
+                <div id="listBox" class="carousel-inner" role="listbox">
+
+
+                </div>
+
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="alert alert-danger" role="alert">
+                <strong>MENSAJE:</strong> Debes de aceptar los permisos de camara y microfono para poder empezar la prueba.
+                </div>
+            </div>
+            <div class="row">
+              <video id="myVideo" class="video-js vjs-default-skin col-md-3" style="width:200px;height:125px"></video>
+              <div class="col-md-3">
+               <button id="buttonP" class="btn" type="button" name="button" tst="1" style="color:white"> ...</button>
+              </div>
+
+            </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script type="text/javascript">
+
+
+    $.ajax({
+  method: "GET",
+  url: "http://138.68.7.40:8050/api/downloadI/5ad424cd24aabec069000001",
+  contentType: "application/x-www-form-urlencoded",
+  dataType : "json"
+  })
+  .done(function( msg ) {
+    console.log(msg);
+    var x = "";
+    var y = msg.archivos.length - 1;
+    for (var i = 0; i < msg.archivos.length; i++) {
+        if(i == 0){
+           x += "<div class='item active'>  <img src="+msg.archivos[i]+" alt=''>    </div>";
+        }else if(i == y){
+           x += "<div class='item' fnl='1'>  <img src="+msg.archivos[i]+" alt=''>    </div>";
+        }else{
+          x += "<div class='item' >  <img src="+msg.archivos[i]+" alt=''>    </div>";
+        }
+    }
+    $("#listBox").append(x);
+
+    $('.carousel').on('slide.bs.carousel', function () {
+      console.log("valor del atributo"+ $(".item.active").attr("fnl"))
+      if($(".item.active").attr("fnl") == "1"){
+        console.log("es el ultimo");
+        $('.carousel').carousel('pause');
+        setTimeout(function(){ player.record().stop();}, 100);
+      }else{
+        setTimeout(function(){ if($("#buttonP").attr("tst")=="1"){$('.carousel').carousel('next')} }, 7800)
+      }
+
+    })
+    $('.carousel').carousel('pause');
+
+  });
+
+    </script>
+
+    <script>
+
+
+
+    var player = videojs("myVideo", {
+        controls: true,
+        width: 320,
+        height: 240,
+        fluid: false,
+        controlBar: {
+            volumePanel: false
+        },
+        plugins: {
+            record: {
+                audio: true,
+                video: true,
+                maxLength: 1000,
+                debug: true
+            }
+        }
+    }, function() {
+        // print version information at startup
+        videojs.log('Using video.js', videojs.VERSION,
+            'with videojs-record', videojs.getPluginVersion('record'),
+            'and recordrtc', RecordRTC.version);
+    });
+
+    // error handling
+    player.on('deviceError', function() {
+        console.warn('device error:', player.deviceErrorCode);
+    });
+
+    player.on('error', function(error) {
+        console.log('error:', error);
+    });
+
+    // user clicked the record button and started recording
+    player.on('startRecord', function() {
+        console.log('started recording!');
+    });
+
+    // user completed recording and stream is available
+    player.on('finishRecord', function() {
+        // the blob object contains the recorded data that
+        // can be downloaded by the user, stored on server etc.
+        console.log('finished recording: ', player.recordedData);
+        console.log('nombre', player.recordedData.name);
+        // the blob object contains the audio data
+                    var audioFile = player.recordedData;
+                    console.log('finished recording: ', audioFile);
+                    // upload data to server
+                    //var pim = [audioFile];
+                    //uploader.addFiles(pim);
+                 player.record().stopDevice();
+                 $("#listBox").html("");
+                 var form = new FormData();
+                form.append("pim", player.recordedData);
+
+                var settings = {
+                  "async": true,
+                  "crossDomain": true,
+                  "url": "http://138.68.7.40:8050/api/uploadvideo/5ad41fa2a986ce4c69000001",
+                  "method": "POST",
+                  "headers": {
+                    "cache-control": "no-cache"
+                  },
+                  "processData": false,
+                  "contentType": false,
+                  "mimeType": "multipart/form-data",
+                  "data": form
+                }
+
+                $.ajax(settings).done(function (response) {
+                  console.log(response);
+                  var yx = "<div class='alert alert-success' role='alert'>  <strong>GRACIAS:</strong> Gracias por participar en la prueba :). </div>";              $("#listBox")
+                  $("#listBox").append(yx);
+                });
+
+
+    });
+    </script>
+
+
+    <script type="text/javascript">
+    player.record().getDevice();
+
+    player.on('startRecord', function() {
+
+    });
+
+    player.on('deviceReady', function() {
+        player.record().start();
+        $(".alert.alert-danger").hide();
+        $("#buttonP").html("Grabando...");
+        $("#buttonP").css("background-color","red");
+        setTimeout(function(){ if($("#buttonP").attr("tst")!="0"){$('.carousel').carousel('next');} }, 8000)
+
+
+    });
+
+    $("#buttonP").on("click", function(){
+      console.log("clic botonk" + $("#buttonP").attr("tst"));
+       if($("#buttonP").attr("tst") == "1"){
+           $(".carousel").carousel('pause');
+           $("#buttonP").attr("tst","0") ;
+           $("#buttonP").html("Pausado");
+           $("#buttonP").css("background-color","blue");
+           player.record().pause();
+       }else{
+         $("#buttonP").html("Grabando...")
+         $("#buttonP").css("background-color","red");
+          $("#buttonP").attr("tst","1") ;
+        setTimeout(function(){ $(".carousel").carousel('next') }, 7800)
+        player.record().resume();
+       }
+
+    })
+
+    </script>
+
+</body>
+
+</html>
