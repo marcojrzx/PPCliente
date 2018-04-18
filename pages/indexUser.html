@@ -58,15 +58,9 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-
-
                         <li>
-                            <a href="usuarios.html"><i class="fa fa-user fa-fw"></i> Usuarios</a>
+                            <a  id="cSesion" style="color:red;cursor:pointer"><i class="fa fa-key  fa-fw"></i> Cerrar Sesion</a>
                         </li>
-                        <li>
-                            <a href="cursos.html"><i class="glyphicon glyphicon-education"></i> Cursos</a>
-                        </li>
-
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -130,6 +124,13 @@
     <script src="../dist/js/sb-admin-2.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
+      if(localStorage.getItem("type") === null){
+          window.location = "index.html"
+
+      }else if(localStorage.getItem("type") != 0){
+        window.location = "index.html"
+      }
+
       var xi = localStorage.getItem("ident")
      $.ajax({
       method: "GET",
@@ -168,6 +169,12 @@
 
 
       })
+
+    })
+
+    $("#cSesion").on("click", function(){
+      localStorage.clear();
+      window.location = "index.html"
 
     })
 

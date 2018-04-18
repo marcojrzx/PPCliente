@@ -68,6 +68,9 @@
                         <li>
                             <a href="cursos.html"><i class="glyphicon glyphicon-education"></i> Cursos</a>
                         </li>
+                        <li>
+                            <a  id="cSesion" style="color:red;cursor:pointer"><i class="fa fa-key  fa-fw"></i> Cerrar Sesion</a>
+                        </li>
 
 
                     </ul>
@@ -368,6 +371,12 @@
       $("#myModal").modal("hide");
       location.reload();
     });
+    })
+
+    $("#cSesion").on("click", function(){
+      localStorage.clear();
+      window.location = "index.html"
+
     })
     </script>
 
